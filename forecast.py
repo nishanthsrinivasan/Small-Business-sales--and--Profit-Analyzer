@@ -49,7 +49,7 @@ def analytics_forecasting_page():
     fig2=px.line(title="Prophet Algorithm Prediction")
     fig2.add_scatter(x=p_df["ds"],y=p_df["y"],name="History")
     fig2.add_scatter(x=forecast_p[forecast_p["ds"]>p_df["ds"].max()]["ds"],y=forecast_p["yhat"],name="Forecast")
-    st.plotly_chart(fig2);fig2.write_image("forecast_chart.png")
+    st.plotly_chart(fig2);
 
     st.divider();st.subheader("📈 Business Prediction")
     total_f=forecast_p.tail(days)["yhat"].sum();status='PROFIT' if total_f>0 else 'LOSS'
