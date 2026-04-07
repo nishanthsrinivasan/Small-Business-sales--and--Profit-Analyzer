@@ -39,7 +39,7 @@ def analytics_forecasting_page():
     fig1=px.line(title="Linear Regression Prediction")
     fig1.add_scatter(x=df_daily.sale_date,y=df_daily.amount,name="History")
     fig1.add_scatter(x=future_dates,y=forecast_lr,name="Forecast")
-    st.plotly_chart(fig1);fig1.write_image("linear_forecast.png")
+    st.plotly_chart(fig1);
 
     st.subheader("🟢 Prophet Forecast")
     p_df=df_daily.rename(columns={"sale_date":"ds","amount":"y"})
